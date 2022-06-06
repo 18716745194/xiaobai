@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>柱状图</title>
+    <script src="js/echarts.min.js"></script>
+</head>
+
+<body>
+    <div id="main" style="width: 600px ; height: 600px;"></div>
+    <script>
+        var mCharts = echarts.init(document.getElementById('main'))
+        var xDataArr = ['张三', '李四', '王五', '朱六', '陈七', '小花', '小翠', '二丫']
+        var yDataArr = [88, 92, 63, 77, 94, 80, 72, 86]
+        var option = {
+            xAxis: {
+                type: 'category',
+                data: xDataArr
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    type: 'bar',
+                    data: yDataArr,
+                    markPoint: {
+                        data: [
+                            {
+                                type: 'max', name: '最大值'
+                            },
+                            {
+                                type: 'min', name: '最小值'
+                            }
+                        ]
+                    },
+                    markLine: {
+                        data: [
+                            {
+                                type: 'average', name: '平均值'
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+        mCharts.setOption(option)
+    </script>
+</body>
+
+</html>

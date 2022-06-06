@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>雷达图</title>
+    <script src="js/echarts.min.js"></script>
+</head>
+<body>
+
+<div id="main" style="width: 1000px;height: 1000px;"></div>
+<script>
+    var mCharts=echarts.init(document.getElementById('main'))
+    var dataMax = [
+        {name: '易用性', max: 100},
+        {name: '功能', max: 100},
+        {name: '拍照', max: 100},
+        {name: '跑分', max: 100},
+        {name: '续航', max: 100}
+    ]
+    var hwScore = [80, 90, 80, 82, 90]
+    var zxScore = [70, 82, 75, 70, 78]
+    var option={
+        radar:{
+            indicator:dataMax
+        },
+        series:[
+            {type:'radar',
+                label:{
+                show:true
+                },
+            data:[
+                {name:'华为手机1',
+                value:hwScore},
+                {
+                    name:'中兴手机1',
+                    value: zxScore
+                }
+            ]}
+        ]
+    }
+    mCharts.setOption(option)
+</script>
+</body>
+</html>

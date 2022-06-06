@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仪表图</title>
+    <script src="js/echarts.min.js"></script>
+</head>
+<body>
+<div id="main" style="height: 1000px;width: 1000px;"></div>
+<script>
+    var mCharts = echarts.init(document.getElementById('main'))
+
+    var option = {
+        series:[
+            {
+                type:'gauge',
+                data:[{
+                    value:97,
+                    itemStyle:{
+                        color:'pink'
+                    }},
+                    {
+                        value: 85,
+                        itemStyle: {
+                            color: 'blue'
+                        }
+                    }],
+                min:30
+            }
+        ]
+    }
+    mCharts.setOption(option)
+</script>
+</body>
+</html>
